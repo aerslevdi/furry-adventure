@@ -1,44 +1,39 @@
-window.onload = function(){
+window.onload = function () {
+
+    let inputBar = document.getElementById("busquedaInput");
+    let arrayDatos = [];
+    let userObj;
+    let userList = document.querySelector('[name =start]');
 
     fetchCall('https://jsonplaceholder.typicode.com/users', getUsers);
-    searchBar();
-}   
-    
-    
-    
 
-    
-
-    function fetchCall(url, fn){
+    function fetchCall(url, fn) {
         fetch(url)
-            .then(function(response){
+            .then(function (response) {
                 return response.json();
             })
-            .then(function(finalAnswer){
+            .then(function (finalAnswer) {
                 fn(finalAnswer);
             })
-            .catch(function(error){
+            .catch(function (error) {
                 console.error(error);
             })
     }
 
     function getUsers(getObj) {
-        let arrayDatos = [];
-        let userObj;
-        let userList = document.querySelector('[name =start]');
-        let user = getObj;        
+        let user = getObj;
         for (let i = 0; i < getObj.length; i++) {
             userObj = user[i];
             arrayDatos.push(user[i]);
-            let row = userList.insertRow();    
-            let idCell = document.createElement('td');      
-            let nameCell = document.createElement('td');      
-            let usernameCell = document.createElement('td');      
-            let emailCell = document.createElement('td');      
-            let cityCell = document.createElement('td');      
-            let phoneCell = document.createElement('td');      
-            let websiteCell = document.createElement('td');      
-            let companyCell = document.createElement('td');      
+            let row = userList.insertRow();
+            let idCell = document.createElement('td');
+            let nameCell = document.createElement('td');
+            let usernameCell = document.createElement('td');
+            let emailCell = document.createElement('td');
+            let cityCell = document.createElement('td');
+            let phoneCell = document.createElement('td');
+            let websiteCell = document.createElement('td');
+            let companyCell = document.createElement('td');
 
             idCell.textContent = userObj.id;
             nameCell.textContent = userObj.name;
@@ -56,12 +51,11 @@ window.onload = function(){
             row.appendChild(phoneCell);
             row.appendChild(websiteCell);
             row.appendChild(companyCell);
-        
+
         }
 
         function searchBar() {
-            let inputBar = document.getElementById("busquedaInput");
-            let arrayDatos = [];
+
             let text = inputBar.textContent;
             let textV = text.toUpperCase();
             for (let i = 0; i < arrayDatos.length; i++) {
@@ -69,8 +63,10 @@ window.onload = function(){
                     return search.style.display = "";
                 }
             }
-        }  
-    } 
+        }
+    }
+
+}
 
 
 
