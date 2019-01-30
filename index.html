@@ -3,34 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title>USERS</title>
+    <link rel="stylesheet" href="css/tablesaw.css">
+    <script src="tablesaw.js"></script>
+    <script src="tablesaw-init.js"></script>    
     <link rel="stylesheet" href="css/bootstrap.min.css">
-</head>
+    </head>
 <body>
-    <div>
-        <label for="busqueda">Find User:</label>
-        <input type="search" id="busquedaInput" name="searchInput" onchange="searchBar()" placeholder="Search">
+    <label for="busqueda">Find User:</label>
+    <div class="input-group col-lg-6">        
+        <input type="search" id="busquedaInput" class="form-control" name="searchInput" aria-describedby="basic-addon3" placeholder="Search">
+        <span class="input-group-addon" id="basic-addon3">*Case sensitive</span>
+        
         
         </div>
-        <table class="table table-responsive">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Name</th>
-                <th scope="col">Username</th>
-                <th scope="col">Email</th>
-                <th scope="col">Address</th>
-                <th scope="col">Phone</th>
-                <th scope="col">Website</th>
-                <th scope="col">Company</th>
-            </tr>
-        </thead>
-        <tbody name = "start">
-           
-        </tbody>
+        <table class="tablesaw tablesaw-stack table" data-tablesaw-mode="stack">
+            <thead >
+                <tr >
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">City</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Website</th>
+                    <th scope="col">Company</th>
+                </tr>
+            </thead>
+            <tbody name="start">
+        
+            </tbody>
     </table>
 
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script src="fetch.js">
-</script>
+<script src="call.js"></script>
 </html>
